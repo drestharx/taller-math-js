@@ -11,16 +11,29 @@
         <h1>Calculo de porcentajes</h1>
     </header>
     <main>
-        <h2>Calculo de descuentos - minitienda</h2>
-        <label for="price">Precio del articulo
-            <input type="number" id="price">
-        </label>
-        <label for="descuento">Descuento (%)
-            <input type="number" id="descuento">
-        </label>
-        <button id="calcButton">Calcular</button>
+        <section>
+            <h2>Calculo de descuentos - minitienda</h2>
+            <label for="price">Precio del articulo
+                <input type="number" id="price">
+            </label>
+            <label for="descuento">Descuento (%)
+                <input type="number" id="descuento">
+            </label>
+            <button id="calcButton">Calcular</button>
 
-        <p id="priceDesc"></p>
+            <p id="priceDesc"></p>
+        </section>
+        <section>
+            <h2>Cupones</h2>
+            <label for="precio">Precio original de tu producto:</label>
+            <input id="precio" type="number">
+            <label for="coupon">Cupon de descuento</label>
+            <input id="coupon" type="text">
+
+            <button id="calcular">Calcular tu descuento</button>
+
+            <p id="buttonResult"></p>
+        </section>
     </main>
     <script src="./percents.js"></script>
 </body>
