@@ -100,3 +100,66 @@ function calcMediana(lista) {
         return lista[medianaLista];
     }
 }
+
+
+// ---------------- MODA ------------------
+
+//un array bidimensional es un array que por cada posicion almacena otro array
+
+function ordenarListaBidimensional(listaDesordenada, i) {
+
+    function ordenarListaSort(valorAcumulado, nuevoValor) {
+        return valorAcumulado[i] - nuevoValor[i];
+    }
+
+    const lista = listaDesordenada.sort(ordenarListaSort);
+
+    return lista;
+
+}
+
+function calcModa(lista) {
+    const listaCount = {};
+
+    for(let i = 0; i < lista.length; i++){
+        const elemento = lista[i];
+
+        if(listaCount[elemento]) {
+            listaCount[elemento] += 1;
+        } else {
+            listaCount[elemento] = 1;
+        }
+
+    }
+
+    const listaBidimensionalDesordenada = Object.entries(listaCount);
+    const listaBiOrdenada = ordenarListaBidimensional(listaBidimensionalDesordenada, 1);
+    const listaMaxNumber = listaBiOrdenada[listaBiOrdenada.length - 1];
+    const moda = listaMaxNumber[0];
+
+    console.log({listaCount, listaBidimensionalDesordenada, listaBiOrdenada, listaMaxNumber});
+
+    return moda;
+
+}
+
+// OBJETO A ARRAY
+// podemos utilizar los metodos de los objetos
+
+//Object.keys que creara un array solo con los atributos de un objeto
+//Object.values creara un array con los valores de los atributos de un objeto
+//Object.entries que creara un array que contenga en cada una de sus posiciones otro array de 2 elementos, su atributo y valor
+
+
+// ---------- MEDIA GEOMETRICA --------------
+
+const listaGeom = [1,2,3,4,5,6];
+
+function calcMediaGeom(lista) {
+    let acum = 1;
+    for(let i = 0; i < lista.length; i++) {
+        acum = lista[i] * acum;
+    }
+    const mediaGeom = Math.pow(acum, (1 / lista.length));
+    return mediaGeom;
+}
