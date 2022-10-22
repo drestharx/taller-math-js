@@ -1,6 +1,6 @@
-const array = [1, 2, 3];
+const MiMath = {};
 
-function calcPromedio(array) {
+MiMath.calcPromedio = function calcPromedio(array) {
     let suma = 0;
     let promedio;
     for(let element of array) {
@@ -14,7 +14,7 @@ function calcPromedio(array) {
 // El metodo reduce nos permite recibir 2 parametros - Valor acumulado y Nuevo Valor
 // Valor acumulado se inicializa en 0
 
-function calcPromReduce(lista) {
+MiMath.calcPromedioReduce = function calcPromReduce(lista) {
     
     let promedio;
 
@@ -30,7 +30,7 @@ function calcPromReduce(lista) {
 
 // ---------------- ORDENAMIENTO DE ARRAYS -----------------
 
-function ordenarArray(listaDesordenada) {
+MiMath.ordenarArray = function ordenarArray(listaDesordenada) {
 
     //Esta funcion recibe 2 argumentos (valorAcumulado, nuevoValor)
     function ordenarListaSort(valorAcumulado, nuevoValor) {
@@ -64,7 +64,7 @@ function ordenarArray(listaDesordenada) {
 
 // ---------------- MEDIANA ---------------
 
-function esPar(array) {
+MiMath.esPar = function esPar(array) {
     if(array.length % 2 == 0) {
         return true;
     } else {
@@ -72,16 +72,11 @@ function esPar(array) {
     }
 }
 
-function calcMediana(lista) {
+MiMath.calcMediana = function calcMediana(lista) {
 
-    const listaOrdenada = ordenarArray(lista);
+    const listaOrdenada = MiMath.ordenarArray(lista);
 
-    const listaEsPar = esPar(listaOrdenada);
-
-    console.log({
-        listaOrdenada,
-        listaEsPar
-    });
+    const listaEsPar = MiMath.esPar(listaOrdenada);
 
     if(listaEsPar) {
 
@@ -106,7 +101,7 @@ function calcMediana(lista) {
 
 //un array bidimensional es un array que por cada posicion almacena otro array
 
-function ordenarListaBidimensional(listaDesordenada, i) {
+MiMath.ordenarListaBidimensional = function ordenarListaBidimensional(listaDesordenada, i) {
 
     function ordenarListaSort(valorAcumulado, nuevoValor) {
         return valorAcumulado[i] - nuevoValor[i];
@@ -118,7 +113,7 @@ function ordenarListaBidimensional(listaDesordenada, i) {
 
 }
 
-function calcModa(lista) {
+MiMath.calcModa = function calcModa(lista) {
     const listaCount = {};
 
     for(let i = 0; i < lista.length; i++){
@@ -133,7 +128,7 @@ function calcModa(lista) {
     }
 
     const listaBidimensionalDesordenada = Object.entries(listaCount);
-    const listaBiOrdenada = ordenarListaBidimensional(listaBidimensionalDesordenada, 1);
+    const listaBiOrdenada = MiMath.ordenarListaBidimensional(listaBidimensionalDesordenada, 1);
     const listaMaxNumber = listaBiOrdenada[listaBiOrdenada.length - 1];
     const moda = listaMaxNumber[0];
 
@@ -153,9 +148,7 @@ function calcModa(lista) {
 
 // ---------- MEDIA GEOMETRICA --------------
 
-const listaGeom = [1,2,3,4,5,6];
-
-function calcMediaGeom(lista) {
+MiMath.calcMedianaGeom = function calcMediaGeom(lista) {
     let acum = 1;
     for(let i = 0; i < lista.length; i++) {
         acum = lista[i] * acum;
